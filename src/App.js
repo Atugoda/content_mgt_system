@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./App.css"
+
 const App = () => {
   //usestate used to save the components
 
@@ -57,6 +59,15 @@ const App = () => {
                 return previousimagurl;
               }
             });
+            setName((previousname) =>
+              previousname.length > 0 ? " " : previousname
+            );
+            setCity((previouscity) =>
+              previouscity.length > 0 ? " " : previouscity
+            );
+            setPosition((previouspostion) =>
+              previouspostion.length > 0 ? " " : previouspostion
+            );
           }}
         >
           submit
