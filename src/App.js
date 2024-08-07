@@ -1,26 +1,63 @@
-import {useState} from "react";
-const App = () =>{
+import { useState } from "react";
+const App = () => {
+  //usestate used to save the components
 
-//usestate used to save the components
-
-const[imageUrl,setimageUrl] = useState('')
-const[name,setName] = useState('')
-const[city,setCity] = useState('')
-const[position,setPosition] = useState('')
+  const [imageUrl, setimageUrl] = useState("");
+  const [name, setName] = useState("");
+  const [city, setCity] = useState("");
+  const [position, setPosition] = useState("");
 
   return (
-  <div className="main_container">
-    <div className="main_left">
-      <input type='text' value={imageUrl}/>
-      <input type='text'value={name}/>
-      <input type='text'value={city}/>
-      <input type='text'valu={position}/>
-      <button>submit</button>
+    <div className="main_container">
+      <div className="main_left">
+        <input
+          type="text"
+          value={imageUrl}
+          onChange={(e) => {
+            e.preventDefault();
+            setimageUrl(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => {
+            e.preventDefault();
+            setName(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          value={city}
+          onChange={(e) => {
+            e.preventDefault();
+            setCity(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          value={position}
+          onChange={(e) => {
+            e.preventDefault();
+            setPosition(e.target.value);
+          }}
+        />
+        <button
+          onClick={() =>
+            console.log({
+              imageUrl,
+              name,
+              city,
+              position,
+            })
+          }
+        >
+          submit
+        </button>
       </div>
 
       <div className="main_right"></div>
-
-  </div>
-  )
-}
+    </div>
+  );
+};
 export default App;
