@@ -9,6 +9,8 @@ const App = () => {
   const [city, setCity] = useState("");
   const [position, setPosition] = useState("");
 
+  const [mydata,setMydata] = useState("");
+
   return (
     <div className="main_container">
       <div className="main_left">
