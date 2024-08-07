@@ -48,11 +48,16 @@ const App = () => {
         />
         <button
           onClick={() => {
-            console.log({
-              imageUrl,
-              name,
-              city,
-              position,
+            //replaced by te new value. therefore this will update continuously for the new values.
+            setMydata(previousmydata=>{
+              return [...previousmydata,
+              {
+                image:imageUrl,
+                name,
+                city,
+                position,
+              },
+            ];
             });
             setimageUrl((previousimagurl) => {
               if (previousimagurl.length > 0) {
