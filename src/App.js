@@ -43,14 +43,21 @@ const App = () => {
           }}
         />
         <button
-          onClick={() =>
+          onClick={() => {
             console.log({
               imageUrl,
               name,
               city,
               position,
-            })
-          }
+            });
+            setimageUrl((previousimagurl) => {
+              if (previousimagurl.length > 0) {
+                return " ";
+              } else {
+                return previousimagurl;
+              }
+            });
+          }}
         >
           submit
         </button>
