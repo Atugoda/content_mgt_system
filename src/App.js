@@ -93,6 +93,7 @@ const App = () => {
       </div>
     </div>
 //?is used beacause to check that there is values or not, if there is values then map them otherwise do not map the values.
-  );
+// unique key property is used to map the refreshed parts.in index 
+);
 };
 export default App;
