@@ -10,8 +10,8 @@ const App = () => {
   const [city, setCity] = useState("");
   const [position, setPosition] = useState("");
 
-  const [mydata,setMydata] = useState([]);
-
+  const [mydata,setMydata] = useState([]);//to make the objects and sae them in an array.
+ console.log(mydata);
   return (
     <div className="main_container">
       <div className="main_left">
@@ -53,7 +53,7 @@ const App = () => {
             setMydata(previousmydata=>{
               return [...previousmydata,
               {
-                image:imageUrl,
+                image:imageUrl, //property value and the state value is given in two different names, therefore the both names have to be given.
                 name,
                 city,
                 position,
@@ -82,7 +82,7 @@ const App = () => {
         </button>
       </div>
 
-      <div className="main_right">
+      <div className="main_right"> 
         {mydata?.map(({image,name,city,position},index)=>(<Unit
          image={image}
          name={name}
@@ -92,7 +92,7 @@ const App = () => {
          />))}
       </div>
     </div>
-    
+//?is used beacause to check that there is values or not, if there is values then map them otherwise do not map the values.
   );
 };
 export default App;
