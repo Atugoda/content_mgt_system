@@ -62,15 +62,19 @@
   padding: 7px;
 
 }
-.main_container.main_right{
+.main_container .main_right{
    width: 100%;
    display: grid;
    grid-template-columns: repeat(3,1fr);
    grid-template-rows: auto;
    gap:17px;
 }
+.main_container .main_right .unit_container img{
+  width: 100%;
+  object-fit: contain;
+}
 
-.main_container.main_right.unit_container p {
+.main_container .main_right .unit_container p {
   display: flex;
   align-items: center;
   justify-content: space-between;
