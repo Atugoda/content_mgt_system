@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Unit = (image, name, city, position) => {
+export const Unit = ({image, name, city, position}) => {
   return (
     <div className="unit_container">
       <img src={image} alt={name} />

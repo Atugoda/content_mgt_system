@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css"
+import Unit from "./Components/Unit";
 
 const App = () => {
   //usestate used to save the components
@@ -9,7 +10,7 @@ const App = () => {
   const [city, setCity] = useState("");
   const [position, setPosition] = useState("");
 
-  const [mydata,setMydata] = useState("");
+  const [mydata,setMydata] = useState([]);
 
   return (
     <div className="main_container">
@@ -81,8 +82,17 @@ const App = () => {
         </button>
       </div>
 
-      <div className="main_right"></div>
+      <div className="main_right">
+        {mydata?.map(({image,name,city,position},index)=>(<Unit
+         image={image}
+         name={name}
+         city={city}
+         position={position}
+         key = {index}
+         />))}
+      </div>
     </div>
+    
   );
 };
 export default App;
