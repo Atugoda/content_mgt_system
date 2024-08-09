@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import "./App.css"
 import Unit from "./Components/Unit";
 
@@ -20,6 +20,8 @@ const App = () => {
   const [mydata,setMydata] = useState([]);//to make the objects and sae them in an array.
 
   return (
+    <Fragment>
+      
     <div className="main_container">
       <div className="main_left">
         <input
@@ -131,6 +133,7 @@ const App = () => {
          />))}
       </div>
     </div>
+    </Fragment>
 //?is used beacause to check that there is values or not, if there is values then map them otherwise do not map the values.
 // unique key property is used to map the refreshed parts.in index 
 );
