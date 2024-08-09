@@ -5,46 +5,68 @@ import Unit from "./Components/Unit";
 const App = () => {
   //usestate used to save the components
 
-  const [imageUrl, setimageUrl] = useState("");
-  const [name, setName] = useState("");
-  const [city, setCity] = useState("");
-  const [position, setPosition] = useState("");
-
+  // const [imageUrl, setimageUrl] = useState("");
+  // const [name, setName] = useState("");
+  // const [city, setCity] = useState("");
+  // const [position, setPosition] = useState("");
+  //used only one state onbehlf of the all other 4 usestates.
+  const [inputdata,setinputdata] = useState({
+    imageUrl: '',
+    name:'',
+    city:'',
+    position:'',
+  })
+  
   const [mydata,setMydata] = useState([]);//to make the objects and sae them in an array.
- console.log(mydata);
+
   return (
     <div className="main_container">
       <div className="main_left">
         <input
           type="text"
-          value={imageUrl}
+          value={inputdata.imageUrl}
           onChange={(e) => {
             e.preventDefault();
-            setimageUrl(e.target.value);
+            //() have to b placed as it needs the return 
+            //... spreading option
+            setinputdata(preinputdata=>({
+              ...preinputdata,
+              imageUrl:e.target.value
+
+            }));
           }}
         />
         <input
           type="text"
-          value={name}
+          value={inputdata.name}
           onChange={(e) => {
             e.preventDefault();
-            setName(e.target.value);
+            setinputdata(preinputdata=>({
+              ...preinputdata,
+              name:e.target.value
+            }))
           }}
         />
         <input
           type="text"
-          value={city}
+          value={inputdata.city}
           onChange={(e) => {
             e.preventDefault();
-            setCity(e.target.value);
+            setinputdata(preinputdata=>({
+              ...preinputdata,
+              city:e.target.value
+            }));
           }}
         />
         <input
           type="text"
-          value={position}
+          value={inputdata.position}
           onChange={(e) => {
             e.preventDefault();
-            setPosition(e.target.value);
+            setinputdata(preinputdata=>({
+              ...preinputdata,
+              position:e.target.value
+            }));
           }}
         />
         <button
@@ -53,28 +75,45 @@ const App = () => {
             setMydata(previousmydata=>{
               return [...previousmydata,
               {
-                image:imageUrl, //property value and the state value is given in two different names, therefore the both names have to be given.
-                name,
-                city,
-                position,
+                image:inputdata.imageUrl, //property value and the state value is given in two different names, therefore the both names have to be given.
+                name:inputdata.name,
+                city:inputdata.city,
+                position:inputdata.position,
               },
             ];
             });
-            setimageUrl((previousimagurl) => {
-              if (previousimagurl.length > 0) {
-                return " ";
+            setinputdata((previousimagurl) => {
+              if (previousimagurl.imageUrl.length > 0) {
+                return {
+                  ...previousimagurl,
+                  imageUrl:''
+                };
               } else {
                 return previousimagurl;
               }
             });
-            setName((previousname) =>
-              previousname.length > 0 ? " " : previousname
+
+            setinputdata((previousname) => {
+              if(previousname.name.length>0){
+                return{
+                  ...previousname,
+                  name:''
+                };
+              }else{
+                return previousname;
+              }
+
+            });
+            // city object value in the previous city, that's why this can be written as previouscity,city.
+            setinputdata((previouscity) =>
+              previouscity.city.length > 0 ? ({
+                ...previouscity, 
+                city:''
+              }) : previouscity
             );
-            setCity((previouscity) =>
-              previouscity.length > 0 ? " " : previouscity
-            );
-            setPosition((previouspostion) =>
-              previouspostion.length > 0 ? " " : previouspostion
+
+            setinputdata((previouspostion) =>
+              previouspostion.position.length > 0 ? ({...previouspostion,position:' '}) : previouspostion
             );
           }}
         >
