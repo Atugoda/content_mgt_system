@@ -2,31 +2,38 @@ import { Fragment, useState } from "react";
 import "./App.css"
 import Unit from "./Components/Unit";
 
+
 const App = () => {
   //usestate used to save the components
-
+  
   // const [imageUrl, setimageUrl] = useState("");
   // const [name, setName] = useState("");
   // const [city, setCity] = useState("");
   // const [position, setPosition] = useState("");
+
   //used only one state onbehlf of the all other 4 usestates.
+
   const [inputdata,setinputdata] = useState({
     imageUrl: '',
     name:'',
     city:'',
     position:'',
+
   })
   
   const [mydata,setMydata] = useState([]);//to make the objects and sae them in an array.
 
   return (
     <Fragment>
-      
+<div>
+
+</div>
     <div className="main_container">
       <div className="main_left">
         <input
           type="text"
           value={inputdata.imageUrl}
+          placeholder='imageurl'
           onChange={(e) => {
             e.preventDefault();
             //() have to b placed as it needs the return 
@@ -41,6 +48,7 @@ const App = () => {
         <input
           type="text"
           value={inputdata.name}
+          placeholder="name"
           onChange={(e) => {
             e.preventDefault();
             setinputdata(preinputdata=>({
@@ -52,6 +60,7 @@ const App = () => {
         <input
           type="text"
           value={inputdata.city}
+          placeholder="city"
           onChange={(e) => {
             e.preventDefault();
             setinputdata(preinputdata=>({
@@ -63,6 +72,7 @@ const App = () => {
         <input
           type="text"
           value={inputdata.position}
+          placeholder="position"
           onChange={(e) => {
             e.preventDefault();
             setinputdata(preinputdata=>({
@@ -115,7 +125,9 @@ const App = () => {
             );
 
             setinputdata((previouspostion) =>
-              previouspostion.position.length > 0 ? ({...previouspostion,position:' '}) : previouspostion
+              previouspostion.position.length > 0 ? ({
+                ...previouspostion,position:' '})
+                 : previouspostion
             );
           }}
         >
@@ -136,6 +148,7 @@ const App = () => {
     </Fragment>
 //?is used beacause to check that there is values or not, if there is values then map them otherwise do not map the values.
 // unique key property is used to map the refreshed parts.in index 
+
 );
 };
 export default App;
