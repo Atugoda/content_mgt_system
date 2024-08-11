@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import "./App.css"
 import Unit from "./Components/Unit";
+import Header from "./Components/Header";
 
 
 const App = () => {
@@ -24,10 +25,14 @@ const App = () => {
   const [mydata,setMydata] = useState([]);//to make the objects and sae them in an array.
 
   return (
+   
     <Fragment>
+      <Header/>
+
 <div>
 
 </div>
+
     <div className="main_container">
       <div className="main_left">
         <input
