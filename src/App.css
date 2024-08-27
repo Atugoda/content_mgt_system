@@ -57,15 +57,15 @@
 }
 
 .header_container nav ul{
-  position: absolute;
-  top: -38px;
-  right: -20px;
+  position:fixed;
+  top: 75px;
+  right: 0px;
   height: 100vh;
   padding:20px 50px 50px ;
   background-color: rgb(235, 91, 91);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap:20px;
 
 }
@@ -75,12 +75,13 @@
 }
 
 .header_container .header_menu{
-  margin: 50px;
-  padding: 12px;
+  
+  margin: 90px;
+  padding: 250px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  gap: 4px;
 }
 
 
